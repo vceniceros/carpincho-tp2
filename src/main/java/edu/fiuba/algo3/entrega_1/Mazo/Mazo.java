@@ -11,13 +11,14 @@ public class Mazo implements Proveedor{
     private List<Carta> cartas;
 
     public Mazo(Proveedor proveedor){
-        this.cartas = proveedor.generarCartas();
+        this.cartas = proveedor.repartirCartas();
     }
     public void mezclar(){
         Collections.shuffle(this.cartas);
     }
 
-    public List<Carta> generarCartas(){
+    public List<Carta> repartirCartas(){
+        this.mezclar();
         List<Carta> cartasJugador = new ArrayList<>();
 
         for(int i = 0; i < (TAMANIOMANO); i++){
@@ -27,13 +28,10 @@ public class Mazo implements Proveedor{
 
         return cartasJugador;
     }
-    public List<Carta> repartirCartas(){
-        mezclar();
-        return this.generarCartas();
-    }
+
     private List<Carta> repartirConUnaCantidad(List<Carta> cartasRecibidas){
         int cantidadDeCartas;
-        this.cartas.addAll(cartasRecibidas);
+        //this.cartas.addAll(cartasRecibidas); // seguro que anda good?
         this.mezclar();
 
         cantidadDeCartas = TAMANIOMANO - cartasRecibidas.size();
@@ -45,7 +43,9 @@ public class Mazo implements Proveedor{
         return manoJugador;
     }
 
-
+    public void agregarCarta(Carta carta){
+        this.cartas.add(carta);
+    }
 
     public List<Carta> reponer(List<Carta> cartas) {
         return repartirConUnaCantidad(cartas);

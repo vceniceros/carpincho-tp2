@@ -44,4 +44,11 @@ public class ManoTest {
         Assertions.assertEquals(true, mano.esManoCompleta());
     }
 
+    public void test02puedoDescarcartarDeUnaMano(){
+        Mazo mazo= new((new FactoryDeMaso("src/main/resources/mazo.json"));
+        Mano mano = new Mano(mazo));
+
+
+    }
+
 }

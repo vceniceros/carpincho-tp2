@@ -16,7 +16,7 @@ public class FactoryDeMaso implements Proveedor {
 
 
     @Override
-    public List<Carta> generarCartas() {
+    public List<Carta> repartirCartas() {
         List<CartaParseada> cartasFake = ParserMazo.convertirDeJsonAFakeCartas(this.ruta);
         List<Carta> cartas = ParserMazo.parsearDeFakeCartaACarta(cartasFake);
         return cartas;

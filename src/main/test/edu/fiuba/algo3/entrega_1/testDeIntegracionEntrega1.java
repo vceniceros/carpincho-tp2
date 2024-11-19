@@ -39,7 +39,7 @@ public class testDeIntegracionEntrega1{
         mazo = Mockito.mock(Mazo.class);
         mano = new Mano(mazo);
 
-        when(mazo.generarCartas()).thenReturn(cartaDePrueba);
+        when(mazo.repartirCartas()).thenReturn(cartaDePrueba);
     }
     @Test
         public void test01SeVerificaQueUnJugadorCuentaConCartasSuficientesParaIniciarElJuegoEnSuMaso() {

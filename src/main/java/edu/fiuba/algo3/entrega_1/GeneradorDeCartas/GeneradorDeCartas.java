@@ -23,7 +23,7 @@ public class GeneradorDeCartas implements Proveedor {
     }
 
 
-    public List<Carta> generarCartas() {
+    public List<Carta> repartirCartas() {
         List<Carta> cartasGeneradas = this.generarCartasPorLimite(new Corazon(),2,14);
         cartasGeneradas.addAll(this.generarCartasPorLimite(new Diamante(), 2, 14));
         cartasGeneradas.addAll(this.generarCartasPorLimite(new Pica(), 2, 14));

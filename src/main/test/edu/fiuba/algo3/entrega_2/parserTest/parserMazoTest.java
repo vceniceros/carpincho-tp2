@@ -13,7 +13,7 @@ public class parserMazoTest{
     public void test01SeParseaUnMazoYSeVerificaLaCantidadDeCartas(){
         Proveedor factoryDeMazo = new FactoryDeMaso("src/main/resources/mazo.json");
 
-        List<Carta> cartas = factoryDeMazo.generarCartas();
+        List<Carta> cartas = factoryDeMazo.repartirCartas();
 
         Assertions.assertEquals(52, cartas.size());
     }

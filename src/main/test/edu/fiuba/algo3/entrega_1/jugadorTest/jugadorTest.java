@@ -5,15 +5,12 @@ import edu.fiuba.algo3.entrega_1.GeneradorDeCartas.GeneradorDeCartas;
 import edu.fiuba.algo3.entrega_1.Jugador.Jugador;
 import edu.fiuba.algo3.entrega_1.Mano.Mano;
 import edu.fiuba.algo3.entrega_1.Mazo.Mazo;
-import edu.fiuba.algo3.entrega_1.Palo.Corazon;
 import edu.fiuba.algo3.entrega_1.Palo.Diamante;
 import edu.fiuba.algo3.entrega_1.Prooveedor.Proveedor;
 import edu.fiuba.algo3.entrega_1.carta.Carta;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +27,7 @@ public class jugadorTest {
     generadorDeCartas = new GeneradorDeCartas();
     cartasJugadas = generadorDeCartas.generarCartasPorLimite(new Diamante(), 2,9);
     mazo = mock(Mazo.class);
-    when(mazo.generarCartas()).thenReturn(cartasJugadas);
+    when(mazo.repartirCartas()).thenReturn(cartasJugadas);
     }
 
     @Test
