@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.controllers.Parser;
-
+import com.google.gson.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import edu.fiuba.algo3.controllers.Factory.FactoryDeActivacion;
@@ -14,7 +14,9 @@ import java.util.List;
 
 public class ParserComodin {
     public static List<ComodinParseado> convertirDeJsonAFakeComodin(String ruta) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Object.class, new ActivacionAdapter())
+                .create();
         try (FileReader reader = new FileReader(ruta)) {
             Type comodinesType = new TypeToken<ListaComodinParseado>() {
             }.getType();
@@ -29,10 +31,12 @@ public class ParserComodin {
     public static List<Comodin> parsearDeFakeComodinAComodin(List<ComodinParseado> fakeComodin) {
         List<Comodin> comodines = new ArrayList<>();
 
-        for (ComodinParseado comodin : fakeComodin) {
-            String nombre = comodin.getNombre();
-            String descripcion = comodin.getDescripcion();
-            Activacion activacion = FactoryDeActivacion.generarActivacion(comodin.getActivacion());
+        for (ComodinParseado comodinFake : fakeComodin) {
+            String nombre = comodinFake.getNombre();
+            String descripcion = comodinFake.getDescripcion();
+            Activacion activacion = FactoryDeActivacion.generarActivacion(comodinFake.getActivacion());
+            EfectoParseado efectoParseado = comodinFake.getEfecto();
+
         }
 
     }
