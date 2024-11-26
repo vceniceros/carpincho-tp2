@@ -4,16 +4,13 @@ package edu.fiuba.algo3.entrega_2.comodinTest;
 import edu.fiuba.algo3.modelo.ManoDePoker.CartaMasAlta;
 import edu.fiuba.algo3.modelo.ManoDePoker.EscaleraReal;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
-import edu.fiuba.algo3.modelo.comodin.ActivacionProbabilidad;
-import edu.fiuba.algo3.modelo.comodin.Comodin;
-import edu.fiuba.algo3.modelo.comodin.Activacion;
+import edu.fiuba.algo3.modelo.comodin.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.ManoDePoker.ManoDePoker;
 import edu.fiuba.algo3.modelo.ManoDePoker.Trio;
 import edu.fiuba.algo3.modelo.ManoDePoker.Par;
-import edu.fiuba.algo3.modelo.comodin.ActivacionSiempre;
-import edu.fiuba.algo3.modelo.comodin.ActivacionManoDePoker;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +18,7 @@ public class comodinTest {
     @Test
     // Verificar que al tener un comodín que sume 8 al multiplicador se aplique correctamente
     public void testComodinAplicaMultiplicadorCorrectamente() {
-        List<Activacion> activaciones = new ArrayList<>();
-        activaciones.add(new ActivacionSiempre());
+        Activacion activaciones =new ActivacionSiempre();
         Comodin comodin = new Comodin("Comodín Multiplicador", "Suma 8 al multiplicador", 0, 8, activaciones);
 
         ManoDePoker cartaAlta = new CartaMasAlta(); // valor: 5 multiplicador:8
@@ -36,8 +32,7 @@ public class comodinTest {
     //Verificar que el jugador recibe un aumento correspondiente si tiene el comodín que aumenta el multiplicador por 3 si juega una escalera
     public void testComodinAplicaAumentoPorManoDePoker() {
         ManoDePoker escaleraReal = new EscaleraReal();
-        List<Activacion> activaciones = new ArrayList<>();
-        activaciones.add(new ActivacionManoDePoker(escaleraReal));
+        Activacion activaciones = new ActivacionManoDePoker(escaleraReal));
         Comodin comodin = new Comodin("Comodín Multiplicador", "Suma 3 al multiplicador por Escalera", 0, 3,activaciones );
 
         ManoDePoker manoJugada = new EscaleraReal(); // (100,8) -- 8 + 3 ->  11
@@ -65,7 +60,8 @@ public class comodinTest {
         List<Activacion> activaciones = new ArrayList<>();
         activaciones.add(new ActivacionProbabilidad(1));
         activaciones.add(new ActivacionManoDePoker(trio));
-        Comodin comodin = new Comodin("Comodín Combinado", "x15  Mult. 1 en 6 de probabilidad y +100  fichas si la mano jugada contiene un trio", 100, 15,activaciones );
+        ActivacionMultiple activacionMultiple = new ActivacionMultiple(activaciones);
+        Comodin comodin = new Comodin("Comodín Combinado", "x15  Mult. 1 en 6 de probabilidad y +100  fichas si la mano jugada contiene un trio", 100, 15,activacionMultiple );
         ManoDePoker manoJugada = new Trio(); // (30,3) -
 
         Puntaje puntaje = new Puntaje(130,18);

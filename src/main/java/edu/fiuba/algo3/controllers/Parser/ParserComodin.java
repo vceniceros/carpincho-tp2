@@ -36,8 +36,9 @@ public class ParserComodin {
             String descripcion = comodinFake.getDescripcion();
             Activacion activacion = FactoryDeActivacion.generarActivacion(comodinFake.getActivacion());
             EfectoParseado efectoParseado = comodinFake.getEfecto();
-
+            Comodin comodin = new Comodin(nombre, descripcion, efectoParseado.getPuntos(), efectoParseado.getMultiplicador(), activacion);
+            comodines.add(comodin);
         }
-
+        return comodines;
     }
 }
