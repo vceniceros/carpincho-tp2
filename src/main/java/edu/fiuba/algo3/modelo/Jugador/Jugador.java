@@ -20,16 +20,16 @@ public class Jugador {
     public void asignarMano(Mano mano) {
         this.mano = mano;
     }
-/*
 
+/*
     public Jugada armarJugada(List<Carta> cartas) {
         List<Carta> cartasJugadas = this.mano.jugarCartas();
         for (Carta carta : cartasJugadas) {
             jugada.seleccionar(carta);
         }
         return jugada;
-    }
-*/
+    }*/
+
     public List<Carta> verCartasEnMano(){
         return mano.verCartasEnMano();
     }

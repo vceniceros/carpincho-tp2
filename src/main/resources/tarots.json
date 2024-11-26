@@ -7,7 +7,7 @@
                 "puntos": 10,
                 "multiplicador": 2
             },
-            "sobre": "carta",
+            "sobre": "carta",            //¿puede ser que el profe se haya equivocado y sea sobre mano, ejemplar carta mas alta?
             "ejemplar": "cualquiera"
         },
         {

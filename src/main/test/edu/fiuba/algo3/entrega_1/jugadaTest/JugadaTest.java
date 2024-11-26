@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Palo.Diamante;
 import edu.fiuba.algo3.modelo.Palo.Pica;
 import edu.fiuba.algo3.modelo.Palo.Trebol;
 import edu.fiuba.algo3.modelo.carta.Carta;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -130,5 +131,80 @@ public class JugadaTest {
         //assert
         assertTrue(jugada.tieneMano(manoEsperada));
     }
+
+    @Test
+    void test08agregoUnaEscaleraColorALaJugadaDesordenadasYCalculaPuntos(){
+        //arrange
+        Jugada jugada = new Jugada();
+        Carta carta1 = new Carta(new Pica(), 2,2,1);
+        Carta carta2 = new Carta(new Pica(), 3,3,1);
+        Carta carta3 = new Carta(new Pica(), 6,6,1);
+        Carta carta4 = new Carta(new Pica(), 4,4,1);
+        Carta carta5 = new Carta(new Pica(), 5,5,1);
+
+        //act
+        jugada.seleccionar(carta1);
+        jugada.seleccionar(carta2);
+        jugada.seleccionar(carta3);
+        jugada.seleccionar(carta4);
+        jugada.seleccionar(carta5);
+        int puntosObtenidos = jugada.jugar().calcularPuntaje();
+
+        //assert
+        Assertions.assertEquals(960,puntosObtenidos);
+    }
+
+    @Test
+    void test09agregoUnaEscaleraColorALaJugadaDesordenadasDesseleccionoUnaYCalculaPuntos(){
+        //arrange
+        Jugada jugada = new Jugada();
+        Carta carta1 = new Carta(new Pica(), 2,2,1);
+        Carta carta2 = new Carta(new Pica(), 3,3,1);
+        Carta carta3 = new Carta(new Pica(), 6,6,1);
+        Carta carta4 = new Carta(new Pica(), 4,4,1);
+        Carta carta5 = new Carta(new Pica(), 5,5,1);
+        Carta carta6 = new Carta(new Corazon(), 5,5,1);
+
+        //act
+        jugada.seleccionar(carta1);
+        jugada.seleccionar(carta2);
+        jugada.seleccionar(carta6);
+        jugada.seleccionar(carta4);
+        jugada.deseleccionar(carta6);
+        jugada.seleccionar(carta5);
+        jugada.seleccionar(carta3);
+        int puntosObtenidos = jugada.jugar().calcularPuntaje();
+
+        //assert
+        Assertions.assertEquals(960,puntosObtenidos);
+    }
+/*
+    @Test
+    void test10agregoUnaEscaleraColorALaJugadaDesordenadasDesseleccionoUnaYCalculaPuntos(){
+        //arrange
+        Jugada jugada = new Jugada();
+        Carta carta1 = new Carta(new Pica(), 2,2,1);
+        Carta carta2 = new Carta(new Pica(), 3,3,1);
+        Carta carta3 = new Carta(new Pica(), 6,6,1);
+        Carta carta4 = new Carta(new Pica(), 4,4,1);
+        Carta carta5 = new Carta(new Pica(), 5,5,1);
+        Carta carta6 = new Carta(new Corazon(), 5,5,1);
+
+        //act
+        jugada.seleccionar(carta1);
+        jugada.seleccionar(carta2);
+        jugada.seleccionar(carta5);
+        jugada.seleccionar(carta6);
+        jugada.deseleccionar(new Carta(new Corazon(), 5,5,1));
+        jugada.seleccionar(carta4);
+        jugada.seleccionar(carta3);
+        int puntosObtenidos = jugada.jugar().calcularPuntaje();
+
+        //assert
+        Assertions.assertEquals(960,puntosObtenidos);
+    }
+    llegué a la conclusion de que al pedirle sacar uno comparando
+    una carta, saca el la última carta que tiene el mismo valor
+    => conviene que a la deselección se le pase la referencia al objeto, no otro objeto*/
 
 }
