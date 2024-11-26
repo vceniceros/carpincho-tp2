@@ -7,6 +7,7 @@ package edu.fiuba.algo3.modelo.carta;
 
 
 import edu.fiuba.algo3.modelo.Modificable.Modificable;
+import edu.fiuba.algo3.modelo.Modificable.Modificador;
 import edu.fiuba.algo3.modelo.Palo.Palo;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 
@@ -62,15 +63,14 @@ public class Carta implements Modificable {
     public int hashCode(){
         return Objects.hash(valor);
     }
-
-
+    @Override
     public void aplicarModificacion(Puntaje puntaje) {
         this.puntaje = puntaje;
     }
 
-    public boolean esIgual(Modificable otroModificable){
-        if(otroModificable == null || getClass() != otroModificable.getClass()) return false;
-        return true ;
+    @Override
+    public Boolean validarModificable(Modificador modificador) {
+        return modificador.validarTipo("carta");
     }
 
     public Puntaje calcularPuntaje() {
