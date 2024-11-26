@@ -1,17 +1,20 @@
 package edu.fiuba.algo3.entrega_1.tarotTest;
+
+import edu.fiuba.algo3.modelo.Modificable.Modificador;
 import edu.fiuba.algo3.modelo.Palo.Corazon;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Tarot.Tarot;
 import edu.fiuba.algo3.modelo.carta.Carta;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-/*
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TarotTest {
 
     @Test
     public void testAplicarTarotACarta() {
         Carta carta = new Carta(new Corazon(),5,5,1);
-        Tarot tarot = new Tarot(10, 1);
+        Tarot tarot = new Tarot("prueba", "prueba", new Puntaje(10, 1.0), new Modificador("carta"));
 
         tarot.aplicarA(carta);
         Puntaje puntaje = carta.calcularPuntaje();
@@ -22,12 +25,12 @@ public class TarotTest {
 
     @Test
     public void testAplicarTarotAPuntaje() {
-        Puntaje puntaje = new Puntaje(2, 3);
-        Tarot tarot = new Tarot(4, 2);
+        Puntaje puntaje = new Puntaje(2, 3.0);
+        Tarot tarot = new Tarot("prueba", "prueba", new Puntaje(4, 2.0), new Modificador("puntaje"));
 
         tarot.aplicarA(puntaje);
-        Puntaje puntajeEsperado = new Puntaje(4, 2);
+        Puntaje puntajeEsperado = new Puntaje(4, 2.0);
 
         assertTrue(puntaje.compararPuntaje(puntajeEsperado), "El puntaje debe aumentar en 10.");
     }
-}*/
+}
