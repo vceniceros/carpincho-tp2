@@ -32,7 +32,7 @@ public class comodinTest {
     //Verificar que el jugador recibe un aumento correspondiente si tiene el comodín que aumenta el multiplicador por 3 si juega una escalera
     public void testComodinAplicaAumentoPorManoDePoker() {
         ManoDePoker escaleraReal = new EscaleraReal();
-        Activacion activaciones = new ActivacionManoDePoker(escaleraReal));
+        Activacion activaciones = new ActivacionManoDePoker(escaleraReal);
         Comodin comodin = new Comodin("Comodín Multiplicador", "Suma 3 al multiplicador por Escalera", 0, 3,activaciones );
 
         ManoDePoker manoJugada = new EscaleraReal(); // (100,8) -- 8 + 3 ->  11

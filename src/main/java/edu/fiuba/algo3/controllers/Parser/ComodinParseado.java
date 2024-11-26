@@ -3,7 +3,7 @@ package edu.fiuba.algo3.controllers.Parser;
 public class ComodinParseado {
     private String nombre;
     private String descripcion;
-    private String activacion;
+    private Object activacion;
     private EfectoParseado efecto;
 
     public String getNombre() {
@@ -22,11 +22,11 @@ public class ComodinParseado {
         this.descripcion = descripcion;
     }
 
-    public String getActivacion() {
+    public Object getActivacion() {
         return activacion;
     }
 
-    public void setActivacion(String activacion) {
+    public void setActivacion(Object activacion) {
         this.activacion = activacion;
     }
 
