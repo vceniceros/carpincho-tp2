@@ -6,8 +6,6 @@ import edu.fiuba.algo3.modelo.MazoDeComodines.MazoDeComodines;
 import edu.fiuba.algo3.modelo.Puntaje.Puntaje;
 import edu.fiuba.algo3.modelo.Tarot.Tarot;
 
-import edu.fiuba.algo3.modelo.Mazo.Mazo;
-
 public class Ronda {
     private Jugador jugador;
     private Tienda tienda;
@@ -55,10 +53,6 @@ public class Ronda {
         }  else {
         throw new IllegalStateException("No hay manos disponibles para jugar.");
         }
-    }
-
-    public boolean jugar(Mazo mazoDeCartas){
-        return true;
     }
 
 

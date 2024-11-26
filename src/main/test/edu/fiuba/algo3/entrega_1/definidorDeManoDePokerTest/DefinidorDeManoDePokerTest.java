@@ -414,6 +414,4 @@ public class DefinidorDeManoDePokerTest {
         assertEquals(manoDePokerEsperada,manoDePokerObtenida);
     }
 
-
-
 }
