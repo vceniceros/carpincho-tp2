@@ -28,6 +28,7 @@ public class ParserComodin {
 
     }
 
+
     public static List<Comodin> parsearDeFakeComodinAComodin(List<ComodinParseado> fakeComodin) {
         List<Comodin> comodines = new ArrayList<>();
 
