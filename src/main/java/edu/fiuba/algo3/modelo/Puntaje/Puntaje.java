@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Puntaje;
 import edu.fiuba.algo3.modelo.Modificable.Modificable;
 import edu.fiuba.algo3.modelo.Modificable.Modificador;
 
-public class Puntaje implements Modificable {
+public class Puntaje {
     private int valor;
     private double multiplicador;
 
@@ -35,12 +35,12 @@ public class Puntaje implements Modificable {
 
     public boolean compararPuntaje(Puntaje puntaje){return puntaje.valor == this.valor && puntaje.multiplicador == this.multiplicador;}
 
-
+/*
     @Override
     public void aplicarModificacion(Puntaje puntaje) {
         this.valor = puntaje.valor;
         this.multiplicador = puntaje.multiplicador;
-    }
+    }*/
 
     @Override
     public Boolean validarModificable(Modificador modificador) {

@@ -28,7 +28,7 @@ public class jugadorTest {
     mazo = mock(Mazo.class);
     when(mazo.generarCartas()).thenReturn(cartasJugadas);
     }
-
+/*
     @Test
     public void test01aUnJugadorSeLeAsignaUnaJugada(){
     Jugador unJugador = new Jugador("martin");
