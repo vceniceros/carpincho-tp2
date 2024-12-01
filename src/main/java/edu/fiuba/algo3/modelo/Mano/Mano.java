@@ -20,17 +20,15 @@ public class Mano {
     public Mano(Mazo mazo) {
         this.cartas = mazo.repartirCartas();
         this.ordenarMano();
-        this.descartes = 3;
-        //this.comodines = new MazoDeComodines();
+        this.descartes = 3;;
 
     }
 
-    public Mano(Mazo mazo,int descartes, MazoDeComodines comodines) {
+    public Mano(Mazo mazo,int descartes) {
         //this.proveedor = proveedor;
         this.mazo = mazo;
         this.cartas = mazo.repartirCartas();
         this.descartes = descartes;         //constructor para poder elegir la cantidad de descartes
-        //this.comodines = comodines;         //y para darle los comodines
     }
 
 
@@ -60,9 +58,9 @@ public class Mano {
     }
 
 
-    public int jugarCartas(){
+    public int jugarCartas(MazoDeComodines comodines){
         ManoDePoker manoDePoker = jugada.jugar();  //se juegan las cartas seleccionadas y devuelve los puntos obtenidos
-        //comodines.aplicar(manoDePoker);
+        comodines.aplicarA(manoDePoker);
         return manoDePoker.calcularPuntaje();
     }
 
