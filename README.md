@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Agustina Fontana** - [agustina](https://github.com/agusfffff)
 * **Dana Kölln** - [dana](https://github.com/Danaklln)
 * **Axel Billordo** - [Axel](https://github.com/axeel25)
-* **Valentino Ceniceros** - [integrante4](https://github.com/vceniceros)
+* **Valentino Ceniceros** - [valentino](https://github.com/vceniceros)
 
 Corrector: **Santiago**
 
