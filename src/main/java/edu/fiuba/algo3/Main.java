@@ -44,17 +44,17 @@ public class Main extends Application{
         playerInfo.setAlignment(Pos.TOP_CENTER);
 
         // Etiqueta de puntuación.
-        Label scoreLabel = new Label("Round Score: 3,528");
+        Label scoreLabel = new Label("Puntos Necesarios: 200");
         scoreLabel.setTextFill(Color.WHITE); // Cambia el color del texto a blanco.
         scoreLabel.setFont(new Font("Arial", 16));
 
         // Etiqueta del número de ronda.
-        Label roundLabel = new Label("Round: 4 / 12");
+        Label roundLabel = new Label("Ronda: 4 / 12");
         roundLabel.setTextFill(Color.WHITE);
         roundLabel.setFont(new Font("Arial", 16));
 
         // Botón de opciones.
-        Button optionsButton = new Button("Options");
+        Button optionsButton = new Button("Descartar");
         optionsButton.setStyle("-fx-background-color: #FF6600; -fx-text-fill: white;");
 
         // Agregar etiquetas y botón al VBox.
@@ -65,7 +65,6 @@ public class Main extends Application{
         activeCards.setAlignment(Pos.CENTER); // Centra el contenido horizontalmente.
         activeCards.setStyle("-fx-background-color: #4A148C; -fx-padding: 10;");
 
-        // Bucle para cargar las imágenes de las cartas.
         for (String nombreCarta : nombreCartas) {
             try {
                 // Cargar la imagen de la carta desde la carpeta de recursos.
@@ -75,6 +74,18 @@ public class Main extends Application{
                 // Ajustar las dimensiones de las cartas.
                 cardView.setFitWidth(100); // Ajusta el ancho de la carta a 100 píxeles.
                 cardView.setPreserveRatio(true); // Mantiene la proporción de la imagen.
+
+                // Evento para levantar la carta cuando el mouse pasa sobre ella.
+                cardView.setOnMouseEntered(event -> {
+                    cardView.setTranslateY(-20); // Mueve la carta hacia arriba 20 píxeles.
+                    cardView.setEffect(new DropShadow(10, Color.BLACK)); // Agrega un efecto de sombra.
+                });
+
+                // Evento para devolver la carta a su posición original cuando el mouse se retira.
+                cardView.setOnMouseExited(event -> {
+                    cardView.setTranslateY(0); // Devuelve la carta a su posición original.
+                    cardView.setEffect(null); // Elimina el efecto de sombra.
+                });
 
                 // Agregar la carta al contenedor de cartas.
                 activeCards.getChildren().add(cardView);
@@ -90,7 +101,7 @@ public class Main extends Application{
 
         // Configuración de la escena.
         Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("Juego de Cartas");
+        primaryStage.setTitle("Balatro");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
