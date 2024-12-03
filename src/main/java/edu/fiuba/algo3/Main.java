@@ -17,8 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.util.Arrays;
+import javafx.animation.RotateTransition;
+import javafx.util.Duration;
 
 public class Main extends Application{
     @Override
@@ -87,6 +87,19 @@ public class Main extends Application{
                     cardView.setEffect(null); // Elimina el efecto de sombra.
                 });
 
+                // **Evento de clic para rotar la carta**
+                cardView.setOnMouseClicked(event -> {
+                    // Crear una transición de rotación
+                    RotateTransition rotate = new RotateTransition();
+                    rotate.setNode(cardView);
+                    rotate.setByAngle(180);  // Rota la carta 180 grados
+                    rotate.setCycleCount(1);  // Realiza la animación una vez
+                    rotate.setDuration(Duration.seconds(0.2));  // Duración de la animación
+
+                    // Ejecutar la animación
+                    rotate.play();
+                });
+
                 // Agregar la carta al contenedor de cartas.
                 activeCards.getChildren().add(cardView);
             } catch (Exception e) {
@@ -94,6 +107,7 @@ public class Main extends Application{
                 e.printStackTrace();
             }
         }
+
 
         // Colocar el VBox en la parte superior y las cartas en el centro.
         root.setTop(playerInfo);
