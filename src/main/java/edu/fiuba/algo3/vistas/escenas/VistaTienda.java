@@ -171,7 +171,7 @@ public class VistaTienda extends Scene{
     private Image obtenerImagenCarta(Carta carta) {
         String palo = compararPalos(carta);
         String valor = carta.obtenerNombre();
-        String rutaImagen = "/images/Cartas/" + palo + "/" + valor + ".jpg";
+        String rutaImagen = "/images/Cartas/" + palo + "/" + valor + ".png";
         return new Image(Objects.requireNonNull(getClass().getResourceAsStream(rutaImagen)));
     }
 
