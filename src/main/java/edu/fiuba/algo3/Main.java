@@ -262,7 +262,18 @@ public class Main extends Application{
         borderPane.setLeft(contenedorIzquierdo);
 
         // termineeeeeeeeeeeee parte info borde izquierdo
+        //sigo con un par de box mas
+        //creo un Hbox Faltaaa colorrrr al Hbox 
+        HBox contenedorMultiYValor= new HBox(10);
+        contenedorMultiYValor.setAlignment(Pos.CENTER);
+        Label multiplicadorLabel= new Label("Multiplicador: ");
+        Label multiValor = new Label("40"); // el dinamico
 
+        Label valorLabel = new Label("valor: ");
+        Label valor = new Label("2"); // dinamico
+
+        contenedorMultiYValor.getChildren().addAll(multiplicadorLabel,multiValor,valorLabel,valor);
+        contenedorIzquierdo.getChildren().add(contenedorMultiYValor);
         //agrego la carta del mazo aca:
         HBox contenedorMazo = new HBox(10);
         contenedorMazo.setAlignment(Pos.CENTER);
