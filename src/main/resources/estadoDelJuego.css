@@ -49,3 +49,11 @@
     -fx-padding: 10px;
     -fx-spacing: 20px;
 }
+/* HBox para "multiplicador" y "valor" */
+.hbox-multiplicador-valor {
+    -fx-background-color: #008CFF; /* azul vivo */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-spacing: 20px;
+}

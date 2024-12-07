@@ -263,15 +263,21 @@ public class Main extends Application{
 
         // termineeeeeeeeeeeee parte info borde izquierdo
         //sigo con un par de box mas
-        //creo un Hbox Faltaaa colorrrr al Hbox 
+        //creo un Hbox Faltaaa colorrrr al Hbox
+
         HBox contenedorMultiYValor= new HBox(10);
+        contenedorMultiYValor.getStyleClass().add("hbox-multiplicador-valor");
+
         contenedorMultiYValor.setAlignment(Pos.CENTER);
         Label multiplicadorLabel= new Label("Multiplicador: ");
         Label multiValor = new Label("40"); // el dinamico
+        multiplicadorLabel.getStyleClass().add("titulo-label");
+        multiValor.getStyleClass().add("puntaje-label");
 
         Label valorLabel = new Label("valor: ");
         Label valor = new Label("2"); // dinamico
-
+        valorLabel.getStyleClass().add("titulo-label");
+        valor.getStyleClass().add("puntaje-label");
         contenedorMultiYValor.getChildren().addAll(multiplicadorLabel,multiValor,valorLabel,valor);
         contenedorIzquierdo.getChildren().add(contenedorMultiYValor);
         //agrego la carta del mazo aca:
